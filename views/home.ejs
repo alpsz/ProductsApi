@@ -1,0 +1,93 @@
+<!-- main div -->
+<div class="container-fluid" id="main-div">
+<!-- main Card -->
+<div class="card ">
+    <!-- Card Header-->
+    <h5 class="card-header info-color white-text text-center py-4">
+      <strong>TODO App</strong>
+    </h5>
+    <!-- Card Header-->
+  
+    <!--Card content-->
+    <div class="card-body px-lg-5 pt-0">
+  
+      
+      
+  
+        <!-- Description -->
+        <div class="md-form">
+          <input type="text" id="description" name = "description" placeholder="What do you need to do?" class="form-control" required>
+          <label for="description">Description</label>
+        </div>
+        <!-- Description -->
+        <!-- Category and DueDate -->
+        <div class="form-row" >
+            <div class="col">
+              <label class="mdb-main-label">Category</label>
+              <select class="dimension" id="category" name="category" required>
+                      <option value="0" selected disabled>Choose Category</option>
+                      <option value="Personal">Personal</option>
+                      <option value="Work">Work</option>
+                      <option value="School">School</option>
+                      <option value="Cleaning">Cleaning</option>
+                      <option value="Other">Other</option>
+                    </select>
+            </div>   
+            <div class="col">
+              <label for="dueDate">Due Date</label>
+              <input type="date" id="dueDate" name="dueDate" class="form-control date" required>
+              
+                
+            </div>   
+        </div>
+       <!-- Category and DueDate -->
+        <!--Add and Delete Buttons-->
+        <div class="row" >
+         
+          <div class="col-md-6">
+            <button type="button" id="addTask" style="margin-left: 60%;" class="btn btn-elegant"><i class="fa fa-plus pr-2" aria-hidden="true"></i>Add Task</button>
+          </div>
+          <div class="col-md-6">
+            <button type="button" id = "deleteTask" style="margin-left: 5%;" class="btn btn-danger"><i class="fa fa-trash pr-2" aria-hidden="true"></i>Delete Tasks</button>
+          </div>
+         
+      </div>
+      <!--Add and Delete Buttons-->
+      <hr>
+
+      <!--List of tasks-->
+        <% for (task of tasks){ %>
+            <div class="row">
+              <div class="col-md-1 col-sm-2 col-xs-10">
+              <input type="checkbox" value="<%= task._id %>" name="checkbox" class="checkbox">
+              </div>
+              <div class="col-md-8 col-sm-12 col-xs-10">
+                <div class="row">
+                  <h3><%= task.description %></h3>
+                </div>
+                <div class="row">
+                  <i class="fa fa-calendar"></i>&nbsp;<p><%= task.dueDate.toDateString() %></p>
+                </div>
+              </div>
+              <div class="col-md-2 col-sm-2 col-xs-2">
+                  <div class="category" name="tablecategory"><%= task.category %></div>
+              </div>
+            </div>
+            <hr>
+        <% } %>
+      <!--List of tasks-->
+
+
+      
+  
+    </div>
+  
+  </div>
+  <!-- main card-->
+
+  </div>
+
+  <!-- main div -->
+  
+
+    
